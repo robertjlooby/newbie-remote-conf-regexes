@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>/^[Rr]egex(es)?$/</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="all" href="normalize.css">
+    <link rel="stylesheet" media="all" href="skeleton.css">
+    <link rel="stylesheet" media="all" href="styles.css">
+    <script type="text/javascript" src="elm.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+    var app = Elm.Main.fullscreen();
+    app.ports.validateRegex.subscribe(function(regex) {
+      try {
+        new RegExp(regex);
+        app.ports.validatedRegex.send([regex, true, ""]);
+      } catch (e) {
+        app.ports.validatedRegex.send([regex, false, e.message]);
+      }
+    });
+  </script>
+</html>
