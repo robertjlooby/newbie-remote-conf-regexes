@@ -2,6 +2,10 @@ li {
   margin-bottom: 0;
 }
 
+li div p {
+  margin-bottom: 0;
+}
+
 button {
   margin-right: 5px;
 }
